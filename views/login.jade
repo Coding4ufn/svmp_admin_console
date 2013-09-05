@@ -1,0 +1,22 @@
+extends layouts/main
+
+block content
+	.row
+		.span6.offset2
+			form(action='/user/session',method='post').form-horizontal
+				legend 
+					h3 Login Required
+				.control-group
+					.controls
+						#flash
+							p(style="color: red; text-align='center';")= message
+				.control-group
+					label.control-label Username:
+					.controls
+						input(type="text", name="username", required autofocus)
+				.control-group
+					label.control-label Password:
+					.controls
+						input(type="password", name="password", required)
+				.form-actions
+					button(type="submit").btn Sign In

@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="span6 offset2">
+        <form class="form-horizontal" name="proxyuserform" novalidate>
+      	 <legend>Add Proxy User</legend>
+      	 <div class="control-group">
+            <div class="controls">
+                <p id="errors" style="color: red; text-align='center';"></p>
+            </div>
+            </div>
+      		<div class="control-group">
+                <label class="control-label" for="proxyuser-id">User Identifer:</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="proxyuser.user_id" id="user_id" required/>
+                </div>
+            </div>
+            <div class="control-group">
+    	       <p>
+    	           Enter a unique ID for the user. This should be a ID that's returned from
+    	           an authentication service. On Save, this will create a VM for the user.
+    	       </p>
+        	</div>
+            <div class="control-group">
+                <label class="control-label" for="image_id">Image:</label>
+                <div class="controls">
+                    <select id="image_id" class="span3">
+                        <option value="1" selected="selected">dsdsdsdsdsdsdsdsdsdsdsdsdsd</option>
+                        <option value="2">dsdsdsdsdsdsdsdsdsdsdsdsdsd</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="image_flavor">Image Flavor:</label>
+                <div class="controls">
+                    <select id="image_flavor" class="span3">
+                        <option value="1" selected="selected">m1.tiny</option>
+                        <option value="2">m1.small</option>
+                        <option value="3">m1.medium</option>
+                    </select>
+                </div>
+            </div>
+             
+        	<div class="form-actions">
+                <button id="add-proxyuser-button" data-ng-disabled="proxyuserform.$invalid" class='btn' data-ng-click="save(proxyuser)" >Save</button>
+        	    &nbsp;
+        	    <button id="cancel-proxyuser-button" class='btn' data-ng-click="cancel()">Cancel</button>
+        	</div>
+	   </form>
+    </div>
+  </div>

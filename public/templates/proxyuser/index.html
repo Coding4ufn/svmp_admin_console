@@ -1,0 +1,25 @@
+
+<div class="row">
+    <div class="span10 offset1">
+    	<div class="list-header">
+        	<span>Proxy Users</span>
+        	<a href="#/proxyuser/new" class="btn pull-right"><i class="icon-plus"></i> Add</a>
+     	</div>
+  		<table class='table table-bordered table-striped'>
+    	<thead>
+      		<th>User Identifier</th>
+      		<th>VM Instance ID</th>
+      		<th>Actions</th>
+    	</thead>
+    	<tbody>
+      		<tr data-ng-repeat="user in proxyusers | orderBy:'user_id'">
+        		<td>{{user.user_id}}</td>
+        		<td>{{user.vm_id}}</td>
+				<td>
+					<a class="proxyuserid" id="{{user._id}}" data-ng-click="remove(user)" href="#" class="btn btn-mini"><i class="icon-remove-circle"></i> Delete User</a>
+				</td>
+      		</tr>
+    	</tbody>
+  		</table>
+    </div>
+  </div>

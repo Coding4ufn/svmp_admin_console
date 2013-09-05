@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="span6 offset3">
+        <form class="form-horizontal" name="apiuserform" novalidate>
+      	     <legend>Add Api Access</legend>
+      	     <div class="control-group">
+                <div class="controls">
+                    <p id="errors" style="color: red; text-align='center';"></p>
+                </div>
+            </div>
+      	    <div class="control-group">
+                <label class="control-label" for="apiuser-id">API User:</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="apiuser.name" id="apiuser-id" required/>
+                </div>
+            </div>
+            <div class="control-group">
+    	       <p>
+    	           Enter a name to describe the API user that will access this service via the api. Provide
+                   the api key to the service to allow access.
+    	       </p>
+            </div>
+             
+            <div class="form-actions">
+                <button id="add-apiuser-button"  data-ng-click="save(apiuser)" data-ng-disabled="apiuserform.$invalid" class='btn'>Save</button>
+        	   &nbsp;
+        	   <button id="cancel-apiuser-button" class='btn' data-ng-click="cancel()">Cancel</button>
+            </div>
+	   </form>
+    </div>
+</div>

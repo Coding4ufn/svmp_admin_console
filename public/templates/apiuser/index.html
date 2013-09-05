@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="span10 offset1">
+    <div class="list-header">
+      <span>Api Access</span>
+      <a href="#/apiuser/new" class="btn pull-right"><i class="icon-plus"></i> Add</a>
+    </div>
+  	<table class='table table-bordered table-striped'>
+    	<thead>
+        <th>Name</th>
+      	<th>API Key</th>
+      	<th>Actions</th>
+    	</thead>
+    	<tbody>
+        <tr data-ng-repeat="user in apiusers | orderBy:'name'">
+        	<td>{{user.name}}</td>
+        	<td>{{user.apikey}}</td>
+				  <td>
+					 <a class="apiuserid" id="{{user._id}}"  data-ng-click="remove(user)" href="#" class="btn btn-mini"><i class="icon-remove-circle"></i> Delete API Access</a>
+				  </td>
+      	</tr>
+    	</tbody>
+  	</table>
+  </div>
+</div>
