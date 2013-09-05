@@ -18,6 +18,7 @@
         "passport-local": "latest",
         "connect-flash": "latest",
         "q": "latest",
-        "pkgcloud": "latest"
+        "pkgcloud": "latest",
+        "node-radius": "latest"
     }
 }

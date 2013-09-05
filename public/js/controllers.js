@@ -23,19 +23,32 @@ function ProxyUserListController($scope, ProxyUser) {
     $scope.proxyusers = ProxyUser.query();
 
     $scope.remove = function (u) {
-        u.$remove(function () {
-            $location.path('/');
-        });
+        var deleteuser = confirm("Are you sure you want to delete user? If so, you must delete VM in openstack");
+        if(deleteuser) {
+            u.$remove(function () {
+                $scope.proxyusers = ProxyUser.query();
+            });
+        }
     };
 }
 
-function ProxyUserNewController($scope, $location, ProxyUser) {
+function ProxyUserNewController($scope, $http, $location, ProxyUser) {
     $scope.proxyuser = new ProxyUser();
     $("#user_id").focus();
+    $scope.loading = false;
 
     // Make HTTP Request to get Image information
+    $http.get("/openstack/images")
+        .success(function (data,s,h,c){
+            $scope.imagelist = data;
+
+        }).error(function(){
+            $scope.imagelist = [];    
+        });
 
     $scope.save = function (user) {
+        console.log("Saving ", user);
+        $scope.loading = true;
         $scope.proxyuser.$save(function (user) {
             $location.path('/');
         });    
@@ -46,13 +59,16 @@ function ProxyUserNewController($scope, $location, ProxyUser) {
     };
 }
 
-function ApiUserListController($scope, $location, ApiUser) {
+function ApiUserListController($scope, ApiUser) {
     $scope.apiusers = ApiUser.query();
 
     $scope.remove = function (u) {
-        u.$remove(function () {
-            $location.path('/apiuser');
-        });
+        var deleteuser = confirm("Are you sure you want to delete this apikey?");
+        if(deleteuser) {
+            u.$remove( function () {
+                $scope.apiusers = ApiUser.query();    
+            });
+        }
     };
 }
 

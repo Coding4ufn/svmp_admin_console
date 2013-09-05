@@ -18,15 +18,25 @@
  */
 'use strict';
 
-module.exports = {
+var local = require('./config-local');
+
+/**
+ * Expects a file named config-local.js in this directory with the following
+ * format:
+   module.exports = {
     settings: {
         db: 'mongodb://localhost/svmp_admin_console',
         port: 8080,
         root: require('path').normalize(__dirname + '/..'),
         openstack: {"authUrl": "http://", 
-        			"username": "test", 
-        			"password": "test",
-        			"tenantId": "eee",
-        			"tenantName": "hello" }
+                    "username": "test", 
+                    "password": "test",
+                    "tenantId": "eee",
+                    "tenantName": "hello" }
+        }
     }
-};
+  * 
+  * This keeps username/password from accidentally slipping into git  
+  */
+
+module.exports = local;

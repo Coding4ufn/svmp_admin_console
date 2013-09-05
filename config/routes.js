@@ -66,6 +66,7 @@ module.exports = function (app, passport) {
     app.post('/proxyuser', requiresAdmin, proxyuser.add);
     // Delete Proxy User
     app.delete('/proxyuser/:id', requiresAdmin, proxyuser.remove);
+    app.get('/openstack/images', requiresAdmin, proxyuser.images);
 
     /** API User enpoints */
     // List API Users

@@ -65,7 +65,6 @@ module.exports = function (app, config, passport) {
         app.use(function (req, res, next) {
             res.locals.authenticated = req.isAuthenticated();
             if(req.isAuthenticated()) {
-                console.log("USERNAME: ", req.user);
                 res.locals.username = req.user.username;
             }
             next();
