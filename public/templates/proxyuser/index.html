@@ -9,12 +9,14 @@
     	<thead>
       		<th>User Identifier</th>
       		<th>VM Instance ID</th>
+          <th>VM IP</th>
       		<th>Actions</th>
     	</thead>
     	<tbody>
       		<tr data-ng-repeat="user in proxyusers | orderBy:'user_id'">
         		<td>{{user.user_id}}</td>
         		<td>{{user.vm_id}}</td>
+            <td>{{user.vm_ip}}</td>
 				<td>
 					<a class="proxyuserid" id="{{user._id}}" data-ng-click="remove(user)" href="#" class="btn btn-mini"><i class="icon-remove-circle"></i> Delete User</a>
 				</td>

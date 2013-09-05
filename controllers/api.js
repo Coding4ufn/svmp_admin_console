@@ -86,11 +86,22 @@ exports.remove = function (req, res) {
 
 
 exports.authenticate = function (req, res) {
-    // Call Radius here??
 
     var key = req.body.apikey;
-    var userid  = req.body.user;
-    ApiUser.findOne({ apikey: key}, function (err, doc) {
+    var userid  = req.body.userid;
+    var password  = req.body.password;
+    var secureId = req.body.secureid;
+
+    /**
+     * 1. Check valid API key
+     * 2. authenticate with Radius
+     * 3. Fetch and return proxy user info {ip: "", id: ""}
+     */
+
+    console.log("Got : ", req.body);
+    res.status(200).send({ip: "555", id: "1000"});
+    
+    /*ApiUser.findOne({ apikey: key}, function (err, doc) {
         if( err ) {
             res.send(404);
         } else {
@@ -102,5 +113,5 @@ exports.authenticate = function (req, res) {
                 }
             });
         }
-    })
+    })*/
 };

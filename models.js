@@ -113,7 +113,8 @@ AdminUserSchema.methods = {
 
 var ProxyUserSchema = new Schema({
     user_id: {type: String, unique: true, index: true, required: true},
-    vm_id: String
+    vm_id: String, 
+    vm_ip: String
 });
 
 var ApiUserSchema = new Schema({

@@ -14,8 +14,8 @@ mongoose.connect(config.db);
 var default_admin = {username: 'mitre', password: 'mitre'};
 
 var proxy_users = [
-    {user_id: "1234", vm_id: "vm1234"},
-    {user_id: "5678", vm_id: "vm5678"}
+    {user_id: "1234", vm_id: "vm1234", vm_ip: "localhost"},
+    {user_id: "5678", vm_id: "vm5678", vm_ip: "123.34.556.334"}
 ];
 
 var api_users = [
