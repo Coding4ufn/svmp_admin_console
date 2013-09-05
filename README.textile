@@ -1,0 +1,29 @@
+
+h2. SVMP Admin Console
+
+Web UI to manage users and their VMs
+
+
+h3. Setup
+
+    # Install "Node.js":http://nodejs.org
+    # Install "MongoDB":http://www.mongodb.org/downloads
+    # Run 'npm install' from within this directory
+
+h3. Configuration
+	
+	See config/config.js
+
+    * db: mongo db URL
+    * port: port number for web app (default 8080)
+    * openstack: openstack API settings
+
+h3. Setup
+
+    * Start mongodb
+    * Run the 'utils/load_test_data.js' script to create a default admin user for the Web UI. Change the default admin password via the web ui!
+    * Start the web app from a terminal run: "node app.js"
+    * Point browser to "http://localhost:8080"
+
+
+
