@@ -24,6 +24,8 @@
  */
 var mongoose = require('mongoose');
 var ApiUser = mongoose.model('ApiUser');
+var ProxyUser = mongoose.model('ProxyUser');
+var r = require('../lib/radius_client');
 
 /**
  * show all users
@@ -97,25 +99,21 @@ exports.authenticate = function (req, res) {
      * 2. authenticate with Radius
      * 3. Fetch and return proxy user info {ip: "", id: ""}
      */
-
-    console.log("Got : ", req.body);
-    res.status(200).send({ip: "555", id: "1000"});
-    
-    /*ApiUser.findOne({ apikey: key}, function (err, doc) {
+    ApiUser.findOne({ apikey: key}, function (err, doc) {
         if( err ) {
             res.send(401);
         } else {
-            var radius = radius.RadiusClient(config);
-            radius.authenticate(userid,password,secureId, function(err, result ){
+            var rad = new r.RadiusClient(config);
+            rad.authenticate(userid,password,secureId, function(err, result ){
                 if(err) {
                     res.send(400);
                 } else {
-                    if( result === 'ok') {}
+                    if( result === 'ok') {
                         ProxyUser.findOne({user_id: userid}, function (err, user) {
                             if( err ) {
                                 res.send(404);
                             } else {
-                                res.send(200);
+                                res.status(200).send({ip: user.vm_ip, id: user.vm_id});
                             }
                         });
                     } else {
@@ -125,5 +123,5 @@ exports.authenticate = function (req, res) {
             });
             
         }
-    })*/
+    });
 };
