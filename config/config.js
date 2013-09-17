@@ -33,7 +33,11 @@ var local = require('./config-local');
                     "password": "test",
                     "tenantId": "eee",
                     "tenantName": "hello" }
-        }
+        },
+        radius: {ip: 'localhost', 
+                 port: 1813,
+                 secret: '', 
+                 nas_ip: ''}
     }
   * 
   * This keeps username/password from accidentally slipping into git  

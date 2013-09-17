@@ -19,6 +19,6 @@
         "connect-flash": "latest",
         "q": "latest",
         "pkgcloud": "latest",
-        "node-radius": "latest"
+        "radius": "latest"
     }
 }

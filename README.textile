@@ -17,6 +17,7 @@ h3. Configuration
     * db: mongo db URL
     * port: port number for web app (default 8080)
     * openstack: openstack API settings
+    * radius: setting if used
 
 h3. Setup
 
@@ -24,6 +25,12 @@ h3. Setup
     * Run the 'utils/load_test_data.js' script to create a default admin user for the Web UI. Change the default admin password via the web ui!
     * Start the web app from a terminal run: "node app.js"
     * Point browser to "http://localhost:8080"
+
+h4. TODO
+    
+    * Integrate Radius
+    * Test authenticate from proxy
+    * Delete VM on openstack - on proxyuser delete
 
 
 

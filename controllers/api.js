@@ -103,15 +103,27 @@ exports.authenticate = function (req, res) {
     
     /*ApiUser.findOne({ apikey: key}, function (err, doc) {
         if( err ) {
-            res.send(404);
+            res.send(401);
         } else {
-            ProxyUser.findOne({user_id: userid}, function (err, user) {
-                if( err ) {
-                    res.send(404);
+            var radius = radius.RadiusClient(config);
+            radius.authenticate(userid,password,secureId, function(err, result ){
+                if(err) {
+                    res.send(400);
                 } else {
-                    res.send(200);
+                    if( result === 'ok') {}
+                        ProxyUser.findOne({user_id: userid}, function (err, user) {
+                            if( err ) {
+                                res.send(404);
+                            } else {
+                                res.send(200);
+                            }
+                        });
+                    } else {
+                        res.send(401)
+                    }
                 }
             });
+            
         }
     })*/
 };
